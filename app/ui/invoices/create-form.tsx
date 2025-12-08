@@ -1,22 +1,25 @@
-import { CustomerField } from '@/app/lib/definitions';
-import Link from 'next/link';
+import { createInvoice } from "@/app/lib/actions";
+import { CustomerField } from "@/app/lib/definitions";
+import { Button } from "@/app/ui/button";
 import {
   CheckIcon,
   ClockIcon,
   CurrencyDollarIcon,
   UserCircleIcon,
-} from '@heroicons/react/24/outline';
-import { Button } from '@/app/ui/button';
+} from "@heroicons/react/24/outline";
+import Link from "next/link";
 
 export default function Form({ customers }: { customers: CustomerField[] }) {
   return (
-    <form>
+    <form action={createInvoice}>
       <div className="rounded-md bg-gray-50 p-4 md:p-6">
         {/* Customer Name */}
         <div className="mb-4">
           <label htmlFor="customer" className="mb-2 block text-sm font-medium">
             Choose customer
           </label>
+
+          {/* есть ошибка нужно сделать тест на пустое поле */}
           <div className="relative">
             <select
               id="customer"
@@ -42,6 +45,8 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
           <label htmlFor="amount" className="mb-2 block text-sm font-medium">
             Choose an amount
           </label>
+
+          {/* есть ошибка нужно сделать тест на пустое поле */}
           <div className="relative mt-2 rounded-md">
             <div className="relative">
               <input
@@ -62,6 +67,8 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
           <legend className="mb-2 block text-sm font-medium">
             Set the invoice status
           </legend>
+
+          {/* есть ошибка нужно сделать по умолчанию pending, пока на беке в createInvoice() сделал дефолтно pending */}
           <div className="rounded-md border border-gray-200 bg-white px-[14px] py-3">
             <div className="flex gap-4">
               <div className="flex items-center">
