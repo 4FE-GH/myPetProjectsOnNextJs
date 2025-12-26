@@ -33,6 +33,7 @@ export async function createInvoice(formData: FormData) {
     VALUES (${customerId}, ${amountInCents}, ${status}, ${date})
   `;
 
+  revalidatePath("/dashboard");
   revalidatePath("/dashboard/invoices");
   redirect("/dashboard/invoices");
 }
@@ -55,11 +56,13 @@ export async function updateInvoice(id: string, formData: FormData) {
     WHERE id = ${id}
   `;
 
+  revalidatePath("/dashboard");
   revalidatePath("/dashboard/invoices");
   redirect("/dashboard/invoices");
 }
 
 export async function deleteInvoice(id: string) {
   await sql`DELETE FROM invoices WHERE id = ${id}`;
+  revalidatePath("/dashboard");
   revalidatePath("/dashboard/invoices");
 }
