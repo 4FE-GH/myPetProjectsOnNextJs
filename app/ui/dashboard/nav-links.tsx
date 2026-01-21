@@ -9,8 +9,10 @@ import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-// Map of links to display in the side navigation.
-// Depending on the size of the application, this would be stored in a database.
+// возможно потом в объектах массива links нужно добавить boolean поле prefetch и гибко настраивать для каждого раздела отдельно,
+// сейчас для всех полей значение прописано {false}, это сделано для того чтобы при переходе между разделами снова запрашивались данные с сервера,
+// и страницы обновлялись корректно после создания/обновления/удаления счетов и клиентов
+
 const links = [
   { name: "Home", href: "/dashboard", icon: HomeIcon },
   {
