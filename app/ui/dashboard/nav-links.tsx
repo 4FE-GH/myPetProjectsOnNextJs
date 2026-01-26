@@ -21,6 +21,11 @@ const links = [
     icon: DocumentDuplicateIcon,
   },
   { name: "Customers", href: "/dashboard/customers", icon: UserGroupIcon },
+  {
+    name: "Transactions",
+    href: "/dashboard/transactions",
+    icon: DocumentDuplicateIcon,
+  },
 ];
 
 export default function NavLinks() {
@@ -38,7 +43,7 @@ export default function NavLinks() {
               "flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3",
               {
                 "text-blue-600 bg-sky-100": pathname === link.href,
-              }
+              },
             )}
           >
             <LinkIcon className="w-6" />
